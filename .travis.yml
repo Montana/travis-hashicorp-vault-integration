@@ -1,6 +1,6 @@
-language: java
+language: generic
 jdk:
-  - oraclejdk7
+  - oraclejdk8
 env:
   - VAULT_ADDR=http://localhost:8200
 sudo: required
