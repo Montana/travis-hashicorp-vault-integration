@@ -129,3 +129,32 @@ Also do not enable sanitizers (such as `-fsanitize=signed-integer-overflow`). Th
 ## Libsodium Helpers 
 
 The `sodium_stackzero()` function clears `len` bytes above the current stack pointer, to overwrite sensitive values that may have been temporarily stored on the stack. _Note that these values can still be present in registers._ This function was introduced in `libsodium 1.0.16.`
+
+## Libhydrogen + Libsodium 
+
+Libhydrogen unlike Libsodium is small and easy to audit. Implemented as one tiny file for every set of operation, and adding a single `.c` file to your project is all it takes to use `libhydrogen` in your project. The whole code is released under a single, very liberal license (ISC).
+
+Zero dynamic memory allocations and low stack requirements (median: `32 bytes`, max: `128 bytes`). This makes it usable in constrained environments such as microcontrollers.
+
+Portable: written in standard `C99`. Supports Linux, BSD, MacOS, Windows, and the Arduino IDE out of the box. A msg_id doesn't have to be secret and it doesn't have to be sequential either. 
+
+Some applications might prefer a coarse timestamp instead. Any value up to `2^64-1` is acceptable.
+
+If this mechanism is not required by an application, using a constant `msg_id` such as `0` is also totally fine. Message identifiers are optional and do not have to be unique.
+
+```c
+int hydro_secretbox_decrypt(void *m_, const uint8_t *c, size_t clen,
+    uint64_t msg_id, const char ctx[hydro_secretbox_CONTEXTBYTES],
+    const uint8_t key[hydro_secretbox_KEYBYTES])
+    __attribute__((warn_unused_result));
+```
+
+The `hydro_secretbox_decrypt()` function decrypts the ciphertext c of length clen (which includes the `hydro_secretbox_HEADERBYTES` bytes header) using the secret key key, the context ctx and the message identifier `msg_id`.
+
+## Probes
+
+If the authentication tag can be verified using these parameters, the function stores the decrypted message into say something like `m_ontana`. The length of this decrypted message is `clen - hydro_secretbox_HEADERBYTES`. It then returns `0.`
+
+If the authentication tag doesn't appear to be valid for these parameters, the function returns `-1.`
+
+
