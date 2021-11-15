@@ -38,21 +38,21 @@
 
 ## Things to remember when dealing with variant secrets 
 
-* Accessing Secrets is /always/ done via HTTP API
-* CLI VAULT client
-* cURL post/get
-* Python/Ruby/Go/... libraries
+* Accessing Secrets is `/always/` done via HTTP API.
+* CLI VAULT client.
+* cURL POST/GET.
+* Python/Ruby/Go/... libraries.
 * Authentication by attribute (IP), token, etc.
 
 ## Environment variables
 
-The creation of a client is affected by a number of environment variables, following the main VAULT command line client.
+>>The creation of a client is affected by a number of environment variables, following the main VAULT command line client.
 
-* `VAULT_ADDR`: The url of the VAULT server. Must include a protocol (most likely htpps:// but in testing http:// might be used)
-* `VAULT_CAPATH`: The path to the CA certificates
+* `VAULT_ADDR`: The url of the VAULT server. Must include a protocol (most likely htpps:// but in testing http:// might be used).
+* `VAULT_CAPATH`: The path to the CA certificates.
 * `VAULT_TOKEN`: A vault token to use in authentication. Only used for token-based authentication. 
 * `VAULT_AUTH_GITHUB_TOKEN`: As for the command line client, a GitHub token for authentication using the GitHub authentication backend. 
-* `VAULTR_AUTH_METHOD`: The method to use for authentication 
+* `VAULTR_AUTH_METHOD`: The method to use for authentication.
 
 ## What's the key things you need to do? 
 
