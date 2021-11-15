@@ -46,4 +46,17 @@ RoleID is an identifier that selects the AppRole against which the other credent
 ![image](https://user-images.githubusercontent.com/20936398/141844618-c5cc712a-13be-4bb0-9abb-db73d1b0f6ab.png)
 
 
+## Authenticaion 
 
+Via the CLI: 
+
+```bash
+curl \
+    --request POST \
+    --data '{"role_id":"988a9df-...","secret_id":"37b74931..."}' \
+    http://127.0.0.1:8200/v1/auth/approle/login
+ ```
+
+## SecretID
+
+SecretID is a credential that is required by default for any login (via `secret_id`) and is intended to always be secret. (For advanced usage, requiring a SecretID can be disabled via an AppRole's `bind_secret_id` parameter, allowing machines with only knowledge of the RoleID, or matching other set constraints, to fetch a token). SecretIDs can be created against an AppRole either via generation of a 128-bit purely random UUID by the role itself (Pull mode) or via specific, custom values (Push mode). Similarly to tokens, SecretIDs have properties like usage-limit, TTLs and expirations.
