@@ -282,3 +282,11 @@ X ← BlockMix(X xor Vj)
 
 return X
 ```
+
+## TTL and Lease
+
+* Each authentication is attached to a token and it will be used for any subsequent requests. The token is configured with a TTL. 
+* The token can be revoked any time if needed or if it is compromised. 
+* Dynamic secrets are attached to a lease that can be configured by roles. When the lease expires, the secret automatically expires. 
+
+Author(s): [Montana Mendy](https://www.github.com/montana)
