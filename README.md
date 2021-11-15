@@ -1,5 +1,18 @@
 [![Build Status](https://app.travis-ci.com/Montana/travis-hashicorp-vault-integration.svg?branch=master)](https://app.travis-ci.com/Montana/travis-hashicorp-vault-integration)
 
+# Why manage secrets?
+
+* Increasing number of applications accessing sensitive data:
+
+>> Means secrets distributed over a wider landscape
+>> Means increased exposure to threats
+
+* Classic secret management (i.e. encrypted file on a share) will not scale
+
+>>Application access to secrets complicated
+>>Rotation and invalidation of secrets difficult and slow process
+>>>Especially critical when something is compromised!
+
 ## Usage
 
 VAULT tokens will typically expire. You could have Travis obtain a token for each run by calling the VAULT API. You’ll still need a credential that you can use to authenticate against VAULT. 
@@ -163,5 +176,16 @@ Probes can help mitigate this. A probe is a 128-bit value computed from the MAC 
 * The recipient reads the probe, verifies it. If it doesn't pass, the ciphertext can be ignored.
 * If it does pass in Travis, the recipient can then decrypt the ciphertext, whose MAC will still be verified.
 
+## Consul templates
 
+Consul Template queries a Consul instance and updates any number of specified templates on the filesystem. As an added bonus, Consul Template can execute arbitrary commands when a template update completes. Consul daemon runs and updates Consul templates as information changes VAULT is a "first class" client for Consul and builds right into template, here's an example below: 
+
+<img width="1052" alt="Screen Shot 2021-11-15 at 2 46 32 PM" src="https://user-images.githubusercontent.com/20936398/141864713-11e4e9ec-94aa-46c4-8ac0-d00848d2bf57.png">
+
+## Ephemeral Secrets
+
+* Secrets that exist for a limited amount of time.
+* Secrets dynamically generated on a per-token/application/user basis.
+* Lease time allows for secrets/access to be retired.
+* Provide secrets on a "need to use" basis.
 
