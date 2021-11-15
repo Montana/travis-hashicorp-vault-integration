@@ -16,6 +16,22 @@
 >>Rotation and invalidation of secrets difficult and slow process
 >>>Especially critical when something is compromised!
 
+## VAULT Principles 
+
+<img width="983" alt="Screen Shot 2021-11-15 at 3 10 34 PM" src="https://user-images.githubusercontent.com/20936398/141867158-93fe1ee7-11d1-45c2-87c1-a7cf1045bc83.png">
+
+## Secret management challenges 
+
+* Secret sprawl 
+* Secrets rotation
+* `X.509` certs, SSH and cloud access
+* Encryption 
+* Multi-platform and multi-cloud
+* Central control and management 
+* Auditing
+* Enforcing compliance and hardware security module
+* Costs, scalability and productivity
+
 ## Things to remember when dealing with variant secrets 
 
 * Accessing Secrets is /always/ done via HTTP API
