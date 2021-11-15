@@ -128,4 +128,4 @@ Also do not enable sanitizers (such as `-fsanitize=signed-integer-overflow`). Th
 
 ## Libsodium Helpers 
 
-The `sodium_stackzero()` function clears len bytes above the current stack pointer, to overwrite sensitive values that may have been temporarily stored on the stack. _Note that these values can still be present in registers._ This function was introduced in `libsodium 1.0.16.`
+The `sodium_stackzero()` function clears `len` bytes above the current stack pointer, to overwrite sensitive values that may have been temporarily stored on the stack. _Note that these values can still be present in registers._ This function was introduced in `libsodium 1.0.16.`
