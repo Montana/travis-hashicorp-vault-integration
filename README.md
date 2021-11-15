@@ -16,6 +16,10 @@
 >>Rotation and invalidation of secrets difficult and slow process
 >>>Especially critical when something is compromised!
 
+## Public methods
+
+<img width="888" alt="Screen Shot 2021-11-15 at 3 44 54 PM" src="https://user-images.githubusercontent.com/20936398/141870213-abdfb7ec-e980-4d74-8aff-d5593404dc48.png">
+
 ## VAULT Principles 
 
 <img width="983" alt="Screen Shot 2021-11-15 at 3 10 34 PM" src="https://user-images.githubusercontent.com/20936398/141867158-93fe1ee7-11d1-45c2-87c1-a7cf1045bc83.png">
@@ -39,6 +43,16 @@
 * cURL post/get
 * Python/Ruby/Go/... libraries
 * Authentication by attribute (IP), token, etc.
+
+## Environment variables
+
+The creation of a client is affected by a number of environment variables, following the main VAULT command line client.
+
+* `VAULT_ADDR`: The url of the VAULT server. Must include a protocol (most likely htpps:// but in testing http:// might be used)
+* `VAULT_CAPATH`: The path to the CA certificates
+* `VAULT_TOKEN`: A vault token to use in authentication. Only used for token-based authentication. 
+* `VAULT_AUTH_GITHUB_TOKEN`: As for the command line client, a GitHub token for authentication using the GitHub authentication backend. 
+* `VAULTR_AUTH_METHOD`: The method to use for authentication 
 
 ## What's the key things you need to do? 
 
