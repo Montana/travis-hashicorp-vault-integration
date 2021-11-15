@@ -157,4 +157,11 @@ If the authentication tag can be verified using these parameters, the function s
 
 If the authentication tag doesn't appear to be valid for these parameters, the function returns `-1.`
 
+Probes can help mitigate this. A probe is a 128-bit value computed from the MAC and a secret key, that can be quickly verified before decrypting the actual ciphertext if the probe happens to pass verification. The key can be the same as the one used for encryption. 
+
+* The sender sends the probe, along with the `ciphertext`.
+* The recipient reads the probe, verifies it. If it doesn't pass, the ciphertext can be ignored.
+* If it does pass in Travis, the recipient can then decrypt the ciphertext, whose MAC will still be verified.
+
+
 
