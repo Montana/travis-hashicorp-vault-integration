@@ -110,3 +110,7 @@ if (crypto_secretbox_open_easy(decrypted, ciphertext, CIPHERTEXT_LEN, nonce, key
 }
 ```
 This operation encrypts a message with a key and a nonce to keep it confidential, then computes an authentication tag. This tag is used to make sure that the message hasn't been tampered with before decrypting it.
+
+## Scrypt
+
+`Scrypt` was also designed to make it costly to perform large-scale custom hardware attacks by requiring large amounts of memory. Even though its memory hardness can be significantly reduced at the cost of extra computations, this function remains an excellent choice today, provided that its parameters are properly chosen.
