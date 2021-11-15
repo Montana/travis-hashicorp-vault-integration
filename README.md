@@ -1,6 +1,6 @@
 ## Usage
 
-VAULT tokens will typically expire. You could have Travis obtain a token for each run by calling the vault API. You’ll still need a credential that you can use to authenticate against VAULT. 
+VAULT tokens will typically expire. You could have Travis obtain a token for each run by calling the VAULT API. You’ll still need a credential that you can use to authenticate against VAULT. 
 
 ## The Logic 
 
@@ -9,6 +9,9 @@ If you put a VAULT token in your `env vars`  it would need human intervention at
 Then as part of your build, use those to get a short lived VAULT token with the capabilities that your app needs, you can "VAULT Hop" in a sense. 
 
 So perhaps a static encrypted VAULT username/password dedicated to Travis => `/v2/auth/userpass/login/` which would return a `auth.client_token`.
+
+![image](https://user-images.githubusercontent.com/20936398/141844521-16bf41d6-312d-4f26-a97f-8e0678901b6c.png)
+
 
 ## Why use VAULT? 
 
@@ -33,3 +36,14 @@ before_script:
 script: mvn clean test
 ````
 You can see we fetch VAULT, then start writing auth/userpass that's read `foo` `bar`. We then run a Maven test. This Travis CI build is now using VAULT.
+
+<img width="900" alt="Screen Shot 2021-11-15 at 11 44 47 AM" src="https://user-images.githubusercontent.com/20936398/141844213-367ed9a8-47fe-4457-a3de-c60e4b241371.png">
+
+## Role ID's 
+
+RoleID is an identifier that selects the AppRole against which the other credentials are evaluated. When authenticating against this auth method's login endpoint, the RoleID is a required argument (via role_id ) at all times.
+
+![image](https://user-images.githubusercontent.com/20936398/141844618-c5cc712a-13be-4bb0-9abb-db73d1b0f6ab.png)
+
+
+
