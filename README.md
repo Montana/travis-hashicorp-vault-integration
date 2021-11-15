@@ -60,3 +60,29 @@ curl \
 ## SecretID
 
 SecretID is a credential that is required by default for any login (via `secret_id`) and is intended to always be secret. (For advanced usage, requiring a SecretID can be disabled via an AppRole's `bind_secret_id` parameter, allowing machines with only knowledge of the RoleID, or matching other set constraints, to fetch a token). SecretIDs can be created against an AppRole either via generation of a 128-bit purely random UUID by the role itself (Pull mode) or via specific, custom values (Push mode). Similarly to tokens, SecretIDs have properties like usage-limit, TTLs and expirations.
+
+![image](https://user-images.githubusercontent.com/20936398/141845139-ac77c32f-3f8e-4cd3-8559-0b50b9081ca2.png)
+
+## Response Wrapping 
+
+When a response is wrapped, the normal API response from Vault does not contain the original secret, but rather contains a set of information related to the response-wrapping token:
+
+* TTL: The TTL of the response-wrapping token itself
+* Token: The actual token value
+* Creation Time: The time that the response-wrapping token was created
+* Creation Path: The API path that was called in the original request
+* Wrapped Accessor: If the wrapped response is an authentication response containing a Vault token, this is the value of the wrapped token's accessor. This is useful for orchestration systems (such as Nomad) to be able to control the lifetime of secrets based on their knowledge of the lifetime of jobs, without having to actually unwrap the response-wrapping token or gain knowledge of the token ID inside.
+
+![image](https://user-images.githubusercontent.com/20936398/141845365-4684417f-f909-4431-b00e-9b0889ed7df3.png)
+
+## Libsodium Sealed Boxes
+
+The format of a sealed box is, `ephemeral_pk ‖ box(m, recipient_pk, ephemeral_sk, nonce=blake2b(ephemeral_pk ‖ recipient_pk))`. Sealed boxes are designed to anonymously send messages to a recipient given its public key. Only the recipient can decrypt these messages, using its private key. While the recipient can verify the integrity of the message, it cannot verify the identity of the sender.
+
+A message is encrypted using an ephemeral key pair, whose secret part is destroyed right after the encryption process. Without knowing the secret key used for a given message, the sender cannot decrypt its own message later. And without additional data, a message cannot be correlated with the identity of its sender.
+
+## Libsodium & VAULT
+
+```c
+int sodium_hex2bin(unsigned char * const bin, const size_t bin_maxlen,                   const char * const hex, const size_t hex_len,                   const char * const ignore, size_t * const bin_len,                   const char ** const hex_end);
+```
