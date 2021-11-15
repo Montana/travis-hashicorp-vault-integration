@@ -14,7 +14,6 @@ So perhaps a static encrypted VAULT username/password dedicated to Travis => `/v
 
 ![image](https://user-images.githubusercontent.com/20936398/141844521-16bf41d6-312d-4f26-a97f-8e0678901b6c.png)
 
-
 ## Why use VAULT? 
 
 HashiCorp VAULT adds an extra layer of security to your tokens, secrets - and lets you manage them. I recommend using VAULT anytime you can. This is just a cursory example of something bigger I'm working on for Travis CI, currently I have HashiCorp Terraform completed (integration), and very close as you can see here getting VAULT integreated. 
@@ -46,7 +45,6 @@ You can see we fetch VAULT, then start writing auth/userpass that's read `foo` `
 RoleID is an identifier that selects the AppRole against which the other credentials are evaluated. When authenticating against this auth method's login endpoint, the RoleID is a required argument (via role_id ) at all times.
 
 ![image](https://user-images.githubusercontent.com/20936398/141844618-c5cc712a-13be-4bb0-9abb-db73d1b0f6ab.png)
-
 
 ## Authenticaion 
 
