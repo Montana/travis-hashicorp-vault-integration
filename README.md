@@ -1,3 +1,5 @@
+[![Build Status](https://app.travis-ci.com/Montana/travis-hashicorp-vault-integration.svg?branch=master)](https://app.travis-ci.com/Montana/travis-hashicorp-vault-integration)
+
 ## Usage
 
 VAULT tokens will typically expire. You could have Travis obtain a token for each run by calling the VAULT API. You’ll still need a credential that you can use to authenticate against VAULT. 
