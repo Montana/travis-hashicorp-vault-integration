@@ -12,8 +12,8 @@
 
 * Classic secret management (i.e. encrypted file on a share) will not scale
 
->>Application access to secrets complicated
->>Rotation and invalidation of secrets difficult and slow process
+>>Application access to secrets complicated.
+>>Rotation and invalidation of secrets difficult and slow process.
 >>>Especially critical when something is compromised!
 
 ## Public methods
@@ -26,15 +26,15 @@
 
 ## Secret management challenges 
 
-* Secret sprawl 
-* Secrets rotation
-* `X.509` certs, SSH and cloud access
-* Encryption 
-* Multi-platform and multi-cloud
-* Central control and management 
-* Auditing
-* Enforcing compliance and hardware security module
-* Costs, scalability and productivity
+* Secret sprawl.
+* Secrets rotation.
+* `X.509` certs, SSH and cloud access.
+* Encryption.
+* Multi-platform and multi-cloud.
+* Central control and management. 
+* Auditing.
+* Enforcing compliance and hardware security module.
+* Costs, scalability and productivity.
 
 ## Things to remember when dealing with variant secrets 
 
@@ -64,12 +64,12 @@
 
 ## Other possible integrations I might work on other than HashiCorp's VAULT
 
-* Chef Vault: k/v secret store
-* Git-Crypt: git encryption
-* Blackbox: k/v secret store
-* Keywhiz: k/v secret store
-* Confidant: IAM management platform
-* Lemur: PKI management platform
+* Chef Vault: k/v secret store.
+* Git-Crypt: git encryption.
+* Blackbox: k/v secret store.
+* Keywhiz: k/v secret store.
+* Confidant: IAM management platform.
+* Lemur: PKI management platform.
 
 ## Usage
 
