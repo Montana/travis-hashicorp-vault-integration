@@ -251,8 +251,8 @@ Consul Template queries a Consul instance and updates any number of specified te
 
 ## Leases
 
-* Secrets from Vault come with a lifetime-requires renewal based on a policy
-* Enforces check-ins (when configured)
+* Secrets from Vault come with a lifetime-requires renewal based on a policy.
+* Enforces check-ins (when configured).
 
 ![image](https://user-images.githubusercontent.com/20936398/141866005-c051709c-36d6-49c3-b474-2810d0440c6d.png)
 
