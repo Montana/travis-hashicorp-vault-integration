@@ -125,3 +125,7 @@ Libsodium is a shared library with a machine-independent set of headers, so that
 
 Since different files are compiled for different CPU classes, and to prevent unwanted optimizations, link-time optimization (LTO) should not be used.
 Also do not enable sanitizers (such as `-fsanitize=signed-integer-overflow`). These can introduce side channels.
+
+## Libsodium Helpers 
+
+The `sodium_stackzero()` function clears len bytes above the current stack pointer, to overwrite sensitive values that may have been temporarily stored on the stack. _Note that these values can still be present in registers._ This function was introduced in `libsodium 1.0.16.`
