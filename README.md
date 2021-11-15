@@ -16,6 +16,31 @@
 >>Rotation and invalidation of secrets difficult and slow process
 >>>Especially critical when something is compromised!
 
+## Things to remember when dealing with variant secrets 
+
+* Accessing Secrets is /always/ done via HTTP API
+* CLI VAULT client
+* cURL post/get
+* Python/Ruby/Go/... libraries
+* Authentication by attribute (IP), token, etc.
+
+## What's the key things you need to do? 
+
+* Safe storage at rest.
+* Secure communication.
+* Robust authentication.
+* Flexible role-based authorization.
+* Easy rotation of secrets.
+
+## Other possible integrations I might work on other than HashiCorp's VAULT
+
+* Chef Vault: k/v secret store
+* Git-Crypt: git encryption
+* Blackbox: k/v secret store
+* Keywhiz: k/v secret store
+* Confidant: IAM management platform
+* Lemur: PKI management platform
+
 ## Usage
 
 VAULT tokens will typically expire. You could have Travis obtain a token for each run by calling the VAULT API. You’ll still need a credential that you can use to authenticate against VAULT. 
@@ -192,3 +217,52 @@ Consul Template queries a Consul instance and updates any number of specified te
 * Lease time allows for secrets/access to be retired.
 * Provide secrets on a "need to use" basis.
 
+<img width="641" alt="Screen Shot 2021-11-15 at 2 39 55 PM" src="https://user-images.githubusercontent.com/20936398/141865891-36eda569-cbc1-4258-a1ba-1e581b73e3ef.png">
+
+## Leases
+
+* Secrets from Vault come with a lifetime-requires renewal based on a policy
+* Enforces check-ins (when configured)
+
+![image](https://user-images.githubusercontent.com/20936398/141866005-c051709c-36d6-49c3-b474-2810d0440c6d.png)
+
+## Example PKI as it relates to Travis 
+
+The PKI secret backend for Vault generates X.509 certificates dynamically based on configured roles. This means services can get certificates needed for both client and server authentication without going through the usual manual process of generating a private key and CSR, submitting to a CA, and waiting for a verification and signing process to complete.
+
+Create SSL certificates on the fly- since they're automatically generated, use short TTL/lease and get a new one every week:
+
+```bash
+vault write pki/root/generate/internal common_name=myvault.com ttl=87600h
+Key             Value
+certificate     -----BEGIN CERTIFICATE-----
+MIIDvTCCAqWgAwIBAgIUAsza+fvOw+Xh9ifYQ0gNN0ruuWcwDQYJKoZIhvcNAQEL
+BQAwFjEUMBIGA1UEAxMLbXl2YXVsdC5jb20wHhcNMTUxMTE5MTYwNDU5WhcNMjUxdfsfsdfds
+```
+
+## Ephemeral Leases 
+
+Policy based renewals done through VAULT that will directly affect your Travis builds, this is of course to add more security. I'll attach a code snippet I made below: 
+
+![carbon (2)](https://user-images.githubusercontent.com/20936398/141866603-348241c9-e575-445d-9665-1ac8778499fd.png)
+
+## Scrypt Algorithm
+
+Keep in mind, the Scrypt Algorithm, these are particular notrious for leaking secrets on occasion: 
+
+```c
+Function ROMix(Block, Iterations)
+
+Create Iterations copies of X
+X ← Block
+for i ← 0 to Iterations−1 do
+Vi ← X
+X ← BlockMix(X)
+
+for i ← 0 to Iterations−1 do
+//Convert first 8-bytes of the last 64-byte block of X to a UInt64, assuming little endian (Intel) format
+j ← Integerify(X) mod N 
+X ← BlockMix(X xor Vj)
+
+return X
+```
