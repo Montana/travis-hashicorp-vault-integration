@@ -114,3 +114,14 @@ This operation encrypts a message with a key and a nonce to keep it confidential
 ## Scrypt
 
 `Scrypt` was also designed to make it costly to perform large-scale custom hardware attacks by requiring large amounts of memory. Even though its memory hardness can be significantly reduced at the cost of extra computations, this function remains an excellent choice today, provided that its parameters are properly chosen.
+
+## Libsodium Multi Arch Cores
+
+Libsodium is a shared library with a machine-independent set of headers, so that it can easily be used by 3rd party projects. The library is built using autotools, making it easy to package. Installation is trivial, and both compilation and testing can take advantage of multiple CPU cores. Download a tarball of libsodium, preferably the latest stable version, then follow the ritual:
+
+```bash
+./configuremake && make checksudo make install
+```
+
+Since different files are compiled for different CPU classes, and to prevent unwanted optimizations, link-time optimization (LTO) should not be used.
+Also do not enable sanitizers (such as `-fsanitize=signed-integer-overflow`). These can introduce side channels.
