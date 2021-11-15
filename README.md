@@ -88,3 +88,27 @@ A message is encrypted using an ephemeral key pair, whose secret part is destroy
 ```c
 int sodium_hex2bin(unsigned char * const bin, const size_t bin_maxlen,                   const char * const hex, const size_t hex_len,                   const char * const ignore, size_t * const bin_len,                   const char ** const hex_end);
 ```
+
+## Authenticated encryption with Libsodium & VAULT using "Sealed Boxes"
+
+Below is myself using `Libsodium, VAULT and Travis, for a full on integration: 
+
+```c
+#define MESSAGE ((const unsigned char *) "test")
+#define MESSAGE_LEN 4
+#define CIPHERTEXT_LEN (crypto_secretbox_MACBYTES + MESSAGE_LEN)
+​
+unsigned char key[crypto_secretbox_KEYBYTES];
+unsigned char nonce[crypto_secretbox_NONCEBYTES];
+unsigned char ciphertext[CIPHERTEXT_LEN];
+​
+crypto_secretbox_keygen(key);
+randombytes_buf(nonce, sizeof nonce);
+crypto_secretbox_easy(ciphertext, MESSAGE, MESSAGE_LEN, nonce, key);
+​
+unsigned char decrypted[MESSAGE_LEN];
+if (crypto_secretbox_open_easy(decrypted, ciphertext, CIPHERTEXT_LEN, nonce, key) != 0) {
+    /* message forged! */
+}
+```
+This operation encrypts a message with a key and a nonce to keep it confidential, then computes an authentication tag. This tag is used to make sure that the message hasn't been tampered with before decrypting it.
