@@ -149,7 +149,7 @@ int hydro_secretbox_decrypt(void *m_, const uint8_t *c, size_t clen,
     __attribute__((warn_unused_result));
 ```
 
-The `hydro_secretbox_decrypt()` function decrypts the ciphertext c of length clen (which includes the `hydro_secretbox_HEADERBYTES` bytes header) using the secret key key, the context ctx and the message identifier `msg_id`.
+The `hydro_secretbox_decrypt()` function decrypts the ciphertext c of length clen (which includes the `hydro_secretbox_HEADERBYTES` bytes header) using the secret key key, the context ctx and the message identifier `msg_id`:
 
 ## Probes
 
