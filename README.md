@@ -71,7 +71,7 @@ dist: focal
 | GET  | /repo/ {repository.slug} /env_vars              | repository.slug   | String  |
 | POST | /repo/{provider}/{repository.id}/env_vars       | provider          | Missing |
 
-The table I created above is also true for branching. Given the above table I made, you can surmise you can run the following and it will reate an environment variable for an individual repository. It is possible to use the repository id or slug in the request. Remember Use namespaced params in the request body to pass the new environment variables:
+The table I created above is also true for branching. Given the above table I made, you can surmise you can run the following and it will reate an environment variable for an individual repository. It is possible to use the repository id or slug in the request. Remember use namespaced params in the request body to pass the new environment variables:
 
 ```bash
 curl -X POST \
