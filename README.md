@@ -33,11 +33,12 @@ curl -H "Travis-API-Version: 3" \
      -H "Authorization: token xxxxxxxxxxxx" \
      https://api.travis-ci.com/repos
  ```
- In the near future there will be a `vault:` hook in the `.travis.yml after I get done doing more debugging and working out the kinks - so for example it could look like: 
+ In the near future there will be a `vault:` hook in the `.travis.yml` after I get done doing more debugging and working out the kinks - so for example it could look like: 
  
  ```yaml
  os: freebsd
  language: go
+ virt: edge 
  vault: true 
  ```
  
