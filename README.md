@@ -9,14 +9,14 @@
 
 * Increasing number of applications accessing sensitive data:
 
->> Means secrets distributed over a wider landscape
->> Means increased exposure to threats
+>> Means secrets distributed over a wider landscape.
+>> Means increased exposure to threats.
 
-* Classic secret management (i.e. encrypted file on a share) will not scale
+* Classic secret management (i.e. encrypted file on a share) will not scale.
 
 >>Application access to secrets complicated.
 >>Rotation and invalidation of secrets difficult and slow process.
->>>Especially critical when something is compromised!
+>>>Especially critical when something is compromised.
 
 ## Fetching using the Travis API 
 
