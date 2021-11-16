@@ -1,6 +1,8 @@
 ![1_he0fhM1Nfn9XfiXPv8o1Vw copy](https://user-images.githubusercontent.com/20936398/141865622-f25c5cda-3bb6-40d4-856f-4d03aa66197a.png)
 
 
+# Using VAULT to manage secrets in Travis CI
+
 [![Build Status](https://app.travis-ci.com/Montana/travis-hashicorp-vault-integration.svg?branch=master)](https://app.travis-ci.com/Montana/travis-hashicorp-vault-integration)
 
 # Why manage secrets?
