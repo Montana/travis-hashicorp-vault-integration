@@ -27,7 +27,8 @@ travis token
 
 Include the token in the Authorization header of each request to https://api.travis-ci.org:
 
-```curl -H "Travis-API-Version: 3" \
+```bash
+curl -H "Travis-API-Version: 3" \
      -H "Authorization: token xxxxxxxxxxxx" \
      https://api.travis-ci.com/repos
  ```
