@@ -14,4 +14,5 @@ before_script:
   - ./vault auth-enable app-id
   - ./vault write auth/app-id/map/app-id/foo value=root display_name=foo
   - ./vault write auth/app-id/map/user-id/bar value=foo
+  - echo -n '{"value":"itsasecret"}' | vault kv put secret/password -
 script: mvn clean test
