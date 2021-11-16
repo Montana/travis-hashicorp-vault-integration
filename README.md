@@ -62,6 +62,7 @@ os: linux
 group: stable
 dist: focal
  ```
+*Environment Variables*
 
 |GET  | /repo/{provider}/{repository.id}/env_vars       | Template Variable | Type    |
 |------|-------------------------------------------------|-------------------|---------|
