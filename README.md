@@ -402,4 +402,4 @@ Static secrets can be stored and versioned using the KV/2 engine. Secrets of dif
 * Debugging.
 * Add seamless API support.
 
-Author(s): [Montana Mendy](https://www.github.com/montana)
+Author(s): [Montana Mendy](https://www.github.com/montana) from Travis CI.
