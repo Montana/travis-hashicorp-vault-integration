@@ -364,7 +364,16 @@ Static secrets can be stored and versioned using the KV/2 engine. Secrets of dif
 
 ![image](https://user-images.githubusercontent.com/20936398/142029628-d5de6a09-ae25-4ba5-9306-495e9ff1a086.png)
 
+## TODO: 
+
+Let the Travis API environment variables for an individual repository return, It is possible to use the repository id or slug in the request. So for example:
+
+
+```bash
+GET /repo/{provider}/{repository.id}/env_vars
+Template Variable	Type	Description
+provider	Unknown	Documentation missing.
+repository.id	Integer	Value uniquely identifying the repository.
+```
 
 Author(s): [Montana Mendy](https://www.github.com/montana)
-
-
