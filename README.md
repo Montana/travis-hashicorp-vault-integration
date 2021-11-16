@@ -88,7 +88,9 @@ env_var.branch
 ```
 The description in JSON should be: 
 ```json
-The env_var's branch.
+{
+  "the env_var's branch.": {}
+}
 ```
  
 ## Public methods
