@@ -62,6 +62,15 @@ os: linux
 group: stable
 dist: focal
  ```
+
+|GET  | /repo/{provider}/{repository.id}/env_vars       | Template Variable | Type    |
+|------|-------------------------------------------------|-------------------|---------|
+| GET  | /repo/ {provider} / {repository.slug} /env_vars | Provier           | Unknown |
+| GET  | travis/repo/{repository.id}/env_vars            | repository.Id     | Integer |
+| GET  | /repo/ {repository.slug} /env_vars              | repository.slug   | String  |
+| POST | /repo/{provider}/{repository.id}/env_vars       | provider          | Missing |
+
+The table I created above is also true for branching. 
  
 ## Public methods
 
