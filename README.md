@@ -81,6 +81,15 @@ curl -X POST \
   -d '{ "env_var.name": "FOO", "env_var.value": "bar", "env_var.public": false }' \
   https://api.travis-ci.com/repo/1234/env_vars
 ```
+The same is true for branching:
+
+```bash
+env_var.branch
+```
+The description in JSON should be: 
+```json
+The env_var's branch.
+```
  
 ## Public methods
 
