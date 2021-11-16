@@ -33,13 +33,34 @@ curl -H "Travis-API-Version: 3" \
      -H "Authorization: token xxxxxxxxxxxx" \
      https://api.travis-ci.com/repos
  ```
- In the near future there will be a `vault:` hook in the `.travis.yml` after I get done doing more debugging and working out the kinks - so for example it could look like: 
+ In the near future there will be a `vault:` hook in the `.travis.yml` after I get done doing more debugging and working out the kinks - so for example it could look like this sample `.travis.yml` I just created:
  
  ```yaml
- os: freebsd
- language: go
- virt: edge 
- vault: true 
+---
+language: go
+go: 1.13.x
+vault: true
+virt: edge
+branches:
+  only:
+  - master
+  - "/^v\\d+\\.\\d+(\\.\\d+)?(-\\S*)?$/"
+install:
+- go mod download
+- go mod verify
+deploy:
+- provider: script
+  skip_cleanup: true
+  script: curl -sL https://git.io/goreleaser | bash
+  'true':
+    tags: true
+    condition: "$TRAVIS_OS_NAME = linux"
+global_env:
+- CGO_ENABLED=0
+- GO111MODULE=on
+os: linux
+group: stable
+dist: focal
  ```
  
 ## Public methods
