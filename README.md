@@ -67,7 +67,7 @@ dist: focal
 |GET  | /repo/{provider}/{repository.id}/env_vars       | Template Variable | Type    |
 |------|-------------------------------------------------|-------------------|---------|
 | GET  | /repo/ {provider} / {repository.slug} /env_vars | Provider          | Unknown |
-| GET  | travis/repo/{repository.id}/env_vars            | repository.Id     | Integer |
+| GET  | /travis/repo/{repository.id}/env_vars            | repository.Id     | Integer |
 | GET  | /repo/ {repository.slug} /env_vars              | repository.slug   | String  |
 | POST | /repo/{provider}/{repository.id}/env_vars       | provider          | Missing |
 
