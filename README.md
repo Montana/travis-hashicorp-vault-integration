@@ -303,4 +303,21 @@ return X
 * The token can be revoked any time if needed or if it is compromised. 
 * Dynamic secrets are attached to a lease that can be configured by roles. When the lease expires, the secret automatically expires. 
 
+## Cryptography princples 
+
+* Vault's primary interface is through a HTTP Restful API. Both the CLI and the Web GUI interface with Vault through the same API. A developer would use this API for programmatic access. There is no other way to expose functionality in Vault other than through this API.
+* In order to consume secrets, clients (either users or applications) need to establish their identity. While Vault supports the common authentication platforms for users, such as LDAP or Active Directory, it also adds different methods of programatically establishing an application identity based on platform trust, leveraging * AWS IAM, Google IAM, Azure Application Groups, TLS Certificates, and Kubernetes namespaces among others. Upon authentication, and based on certain identity attributes like group membership or project name, Vault will grant a short lived token aligned with a specific set of policies.
+* Policies in Vault are decoupled from identities and define what set of secrets a particular identity can access. They are defined as code in HashiCorp Configuration Language (HCL). Rich policy can be defined using Sentinel rules, that are designed to answer "under what condition" an entity would get access to the secret, rather than the traditional "who gets access" to what secret defined in regular ACLs.
+
+Vault sends audit information to a SIEM system or logging backend via Syslog, File or Socket. Vault will not respond if it cannot provide audit information appropriately.
+
+Ultimately Vault can either store or generate secrets dynamically. By virtue of "mounting" an engine:
+
+Static secrets can be stored and versioned using the KV/2 engine. Secrets of different types can be dynamically generated using different engines, for Databases, SSH / AD access, PKI (X.509 Certificates) among others.
+
+![image](https://user-images.githubusercontent.com/20936398/142029628-d5de6a09-ae25-4ba5-9306-495e9ff1a086.png)
+
+
 Author(s): [Montana Mendy](https://www.github.com/montana)
+
+
