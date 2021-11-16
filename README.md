@@ -397,9 +397,9 @@ Static secrets can be stored and versioned using the KV/2 engine. Secrets of dif
 ## TODO: 
 
 * Let the Travis API environment variables for an individual repository return.
-* AB Testing 
-* Product Manager Testing 
-* Debugging 
-* Add seamless API support
+* AB Testing.
+* Product Manager Testing.
+* Debugging.
+* Add seamless API support.
 
 Author(s): [Montana Mendy](https://www.github.com/montana)
