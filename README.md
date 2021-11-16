@@ -16,6 +16,22 @@
 >>Rotation and invalidation of secrets difficult and slow process.
 >>>Especially critical when something is compromised!
 
+## Fetching using the Travis API 
+
+You'll want to use the Travis API, to fethch this, so first from the CLI, you'll need to generate a token:
+
+```bash
+travis login
+travis token
+```
+
+Include the token in the Authorization header of each request to https://api.travis-ci.org:
+
+```curl -H "Travis-API-Version: 3" \
+     -H "Authorization: token xxxxxxxxxxxx" \
+     https://api.travis-ci.com/repos
+ ```
+ 
 ## Public methods
 
 <img width="888" alt="Screen Shot 2021-11-15 at 3 44 54 PM" src="https://user-images.githubusercontent.com/20936398/141870213-abdfb7ec-e980-4d74-8aff-d5593404dc48.png">
