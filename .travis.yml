@@ -14,5 +14,4 @@ before_script:
   - ./vault auth-enable app-id
   - ./vault write auth/app-id/map/app-id/foo value=root display_name=foo
   - ./vault write auth/app-id/map/user-id/bar value=foo
-  - ./vault monitor -log-level=debug
 script: mvn clean test
