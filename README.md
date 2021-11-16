@@ -24,8 +24,7 @@ You'll want to use the Travis API, to fethch this, so first from the CLI, you'll
 travis login
 travis token
 ```
-
-Include the token in the Authorization header of each request to https://api.travis-ci.org:
+Our latest API is `v3`, so let's try and use that one using the Travis API Explorer. Include the token in the Authorization header of each request to https://api.travis-ci.org:
 
 ```bash
 curl -H "Travis-API-Version: 3" \
