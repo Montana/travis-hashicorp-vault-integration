@@ -18,6 +18,11 @@
 >>Rotation and invalidation of secrets difficult and slow process.
 >>>Especially critical when something is compromised.
 
+## LAN Gossip 
+
+![image](https://user-images.githubusercontent.com/20936398/142288624-53c6b079-60e6-4b8f-ad3a-78422f8b957e.png)
+
+
 ## Vault PostgreSQL DB Secret Engine 
 _Setup in Photos:_
 >><img width="810" alt="Screen Shot 2021-11-17 at 12 57 46 PM" src="https://user-images.githubusercontent.com/20936398/142281432-8e5b7c4e-9fe0-4d9d-ae6f-5ef732d93016.png">
