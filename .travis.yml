@@ -10,7 +10,7 @@ before_install:
   - ./vault server -dev &
   - ./vault version 
   - ./vault status
-  - ./vault license get
+  - ./vault auth
 before_script:
   - ./vault auth-enable userpass
   - ./vault write auth/userpass/users/montana password=foo policies=root
