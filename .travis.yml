@@ -10,6 +10,7 @@ before_install:
   - ./vault server -dev &
   - ./vault version 
   - ./vault status
+  - chmod u+x terraform/terraform.sh
 before_script:
   - ./vault auth-enable userpass
   - ./vault write auth/userpass/users/montana password=foo policies=root
@@ -17,3 +18,4 @@ before_script:
   - ./vault write auth/app-id/map/app-id/foo value=root display_name=foo
   - ./vault write auth/app-id/map/user-id/bar value=foo
 script: mvn clean test
+
