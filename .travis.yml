@@ -7,7 +7,7 @@ sudo: required
 before_install:
   - wget https://releases.hashicorp.com/vault/0.5.2/vault_0.5.2_linux_amd64.zip
   - unzip vault_0.5.2_linux_amd64.zip
-  - ./vault token-create -policy=production -wrap-ttl=20m
+  - ./vault token-create -no-default-policy -wrap-ttl=20m
   - ./vault server -dev &
   - ./vault version 
   - ./vault status
