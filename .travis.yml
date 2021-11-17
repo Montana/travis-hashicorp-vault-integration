@@ -8,7 +8,6 @@ before_install:
   - wget https://releases.hashicorp.com/vault/0.5.2/vault_0.5.2_linux_amd64.zip
   - unzip vault_0.5.2_linux_amd64.zip
   - ./vault server -dev &
-  - ./vault audit-enable
   - ./vault version 
   - ./vault status
 before_script:
@@ -17,4 +16,5 @@ before_script:
   - ./vault auth-enable app-id
   - ./vault write auth/app-id/map/app-id/foo value=root display_name=foo
   - ./vault write auth/app-id/map/user-id/bar value=foo
+  - ./vault operator step-down
 script: mvn clean test
