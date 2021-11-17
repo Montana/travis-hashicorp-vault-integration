@@ -10,7 +10,7 @@ public class TestSupport {
         UserPassClient userPassClient = vault1.authClients().userPass();
 
         try {
-            return userPassClient.login("rickfast", "foo").getAuth()
+            return userPassClient.login("montana", "foo").getAuth()
                     .getClientToken();
         } catch (LoginFailedException e) {
             throw new RuntimeException(e);
