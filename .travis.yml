@@ -10,10 +10,6 @@ before_install:
   - ./vault server -dev &
   - ./vault version 
   - ./vault status
-  - wget https://releases.hashicorp.com/terraform/"$tf_version"/terraform_"$tf_version"_linux_amd64.zip
-  - unzip terraform_"$tf_version"_linux_amd64.zip
-  - sudo mv terraform /usr/local/bin/
-  - rm terraform_"$tf_version"_linux_amd64.zip
 before_script:
   - ./vault auth-enable userpass
   - ./vault write auth/userpass/users/montana password=foo policies=root
