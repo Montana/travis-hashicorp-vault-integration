@@ -18,6 +18,13 @@
 >>Rotation and invalidation of secrets difficult and slow process.
 >>>Especially critical when something is compromised.
 
+## Vault PostgreSQL DB Secret Engine 
+_Setup in Photos:_
+>><img width="810" alt="Screen Shot 2021-11-17 at 12 57 46 PM" src="https://user-images.githubusercontent.com/20936398/142281432-8e5b7c4e-9fe0-4d9d-ae6f-5ef732d93016.png">
+
+>><img width="810" alt="Screen Shot 2021-11-17 at 12 57 46 PM" src="https://user-images.githubusercontent.com/20936398/142281476-07039393-664e-4d69-b988-663dc1093901.png">
+
+
 ## Fetching using the Travis API 
 
 You'll want to use the Travis API, to fethch this, so first from the CLI, you'll need to generate a token:
