@@ -394,6 +394,11 @@ Static secrets can be stored and versioned using the KV/2 engine. Secrets of dif
 
 ![image](https://user-images.githubusercontent.com/20936398/142029628-d5de6a09-ae25-4ba5-9306-495e9ff1a086.png)
 
+## Kubernetes sidecar secrets 
+
+* Will allow automatic injection of secrets into the pod file system for static and dynamic secrets. 
+* Will allow applications to only concern themselves wirth finding a secret at a filesystem path, rather than managing the `auth tokens` and other mechanisms for direct ineraction with Vault. 
+
 ## TODO: 
 
 * Let the Travis API environment variables for an individual repository return.
