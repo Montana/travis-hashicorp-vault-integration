@@ -9,6 +9,7 @@ before_install:
   - unzip vault_0.5.2_linux_amd64.zip
   - ./vault server -dev &
   - ./vault version 
+  - ./vault status
 before_script:
   - ./vault auth-enable userpass
   - ./vault write auth/userpass/users/montana password=foo policies=root
