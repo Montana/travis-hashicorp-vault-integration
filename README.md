@@ -20,8 +20,11 @@
 
 ## LAN Gossip 
 
-![image](https://user-images.githubusercontent.com/20936398/142288624-53c6b079-60e6-4b8f-ad3a-78422f8b957e.png)
+Suppose that we want to find the object that most closely matches some search pattern, within a network of unknown size, but where the computers are linked to one another and where each machine is running a small agent program that implements a gossip protocol.
 
+To start the search, a user would ask the local agent to begin to gossip about the search string. (We're assuming that agents either start with a known list of peers, or retrieve this information from some kind of a shared store.)
+
+![image](https://user-images.githubusercontent.com/20936398/142288624-53c6b079-60e6-4b8f-ad3a-78422f8b957e.png)
 
 ## Vault PostgreSQL DB Secret Engine 
 _Setup in Photos:_
