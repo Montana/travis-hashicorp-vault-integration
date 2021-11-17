@@ -16,6 +16,13 @@ before_script:
   - ./vault auth-enable app-id
   - ./vault write auth/app-id/map/app-id/foo value=root display_name=foo
   - ./vault write auth/app-id/map/user-id/bar value=foo
+  - 'if [[ ! -f $CONSUL_DIR/consul ]]; then (mkdir -p $CONSUL_DIR && cd $CONSUL_DIR && wget https://dl.bintray.com/mitchellh/consul/${CONSUL_VERSION}_linux_amd64.zip && unzip ${CONSUL_VERSION}_linux_amd64.zip); fi'
+  - $CONSUL_DIR/consul --version
+  - $CONSUL_DIR/consul agent -server -bootstrap-expect 1 -data-dir /tmp/consul -dc=$CONSUL_DC &
+  - sleep 5
+cache:
+  directories:
+    - $CONSUL_DIR
 script: 
  - mvn clean test
  - bash -n terraform/terraform.sh
