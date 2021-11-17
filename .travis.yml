@@ -8,7 +8,7 @@ before_install:
   - wget https://releases.hashicorp.com/vault/0.5.2/vault_0.5.2_linux_amd64.zip
   - unzip vault_0.5.2_linux_amd64.zip
   - ./vault server -dev &
-  - ./vault unwrap 3de9ece1-b347-e143-29b0-dc2dc31caafd
+  - ./vault write aws/roles/ops policy=@policy.json
   - ./vault version 
   - ./vault status
 before_script:
