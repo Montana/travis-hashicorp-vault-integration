@@ -3,7 +3,7 @@
 
 # Using VAULT to manage secrets in Travis CI (Full release scheduled January 2022)
 
-[![Build Status](https://app.travis-ci.com/Montana/travis-hashicorp-vault-integration.svg?branch=master)](https://app.travis-ci.com/Montana/travis-hashicorp-vault-integration)
+[![Build Status](https://app.travis-ci.com/Montana/travis-hashicorp-vault-integration.svg?token=U865GtC2ptqX3Ezf3Fzb&branch=master)](https://app.travis-ci.com/Montana/travis-hashicorp-vault-integration)
 
 # Why manage secrets?
 
