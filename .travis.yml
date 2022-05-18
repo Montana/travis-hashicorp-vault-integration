@@ -17,5 +17,5 @@ before_script:
   - ./vault write auth/app-id/map/app-id/foo value=root display_name=foo
   - ./vault write auth/app-id/map/user-id/bar value=foo
 script: 
- - mvn clean test
- - bash -n terraform/terraform.sh
+  - mvn clean test
+  - bash -n terraform/terraform.sh
