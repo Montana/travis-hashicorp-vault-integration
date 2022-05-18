@@ -5,8 +5,9 @@ env:
   - VAULT_ADDR=http://localhost:8200
 sudo: required
 before_install:
-  - wget https://releases.hashicorp.com/vault/0.5.2/vault_0.5.2_linux_amd64.zip
-  - unzip vault_0.5.2_linux_amd64.zip
+  - curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo apt-key add -
+  - sudo apt-add-repository "deb [arch=amd64] https://apt.releases.hashicorp.com $(lsb_release -cs) main"
+  - sudo apt-get update && sudo apt-get install vault
   - ./vault server -dev &
   - ./vault version 
   - ./vault status
